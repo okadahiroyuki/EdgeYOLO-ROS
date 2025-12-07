@@ -11,7 +11,7 @@ RUN apt update && \
     aria2c -q -d /tmp -o cmake-3.21.0-linux-x86_64.tar.gz https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-linux-x86_64.tar.gz && \
     tar -zxf /tmp/cmake-3.21.0-linux-x86_64.tar.gz --strip=1 -C /usr
 RUN python3 -m pip install -U pip && \
-    python3 -m pip install -U numpy setuptools wheel && \
+    python3 -m pip install -U "numpy<2" "setuptools>=75" "packaging>=24" wheel && \
     python3 -m pip cache purge
 
 WORKDIR /workdir
